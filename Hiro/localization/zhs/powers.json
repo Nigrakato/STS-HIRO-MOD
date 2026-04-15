@@ -1,0 +1,67 @@
+{"HIRO-SHIPO.title":"识破",
+ "HIRO-SHIPO.description":"每有[blue]1[/blue]层识破使你下一张打出的攻击牌[gold]伤害[/gold]提高10%。",
+ "HIRO-SHIPO.smartDescription":"你的下一张攻击牌将额外造成[blue]{BonusPercent}%[/blue]伤害。",
+
+ "HIRO-JUSTICE.title":"正义",
+ "HIRO-JUSTICE.description":"这是正确的！当你拥有10层[gold]正义[/gold]时,抽一张牌，每回合开始时多抽一张牌。\n当你拥有20层[gold]正义[/gold]时,获得{energyPrefix:energyIcons(1)}，每回合开始时获得{energyPrefix:energyIcons(1)}\n当你拥有30层[gold]正义[/gold]时，获得一层无实体。\n当你拥有40层[gold]正义[/gold]时，获得本场战斗胜利。",
+ "HIRO-JUSTICE.smartDescription":"当前有[blue]{Amount}[/blue]层正义。",
+ 
+
+  "HIRO-KILL_IMPULSE_POWER.title": "杀意冲动",
+  "HIRO-KILL_IMPULSE_POWER.description": "达到[blue]10[/blue]层时：失去[red]5[/red]点生命上限，获得[gold]5[/gold]点力量，并进入[red]魔女化[/red]。[red]魔女化[/red]期间无法获得[red]杀意冲动[/red]。",
+  "HIRO-KILL_IMPULSE_POWER.smartDescription": "当前有[blue]{Amount}[/blue]层。达到[blue]10[/blue]层时：失去[red]5[/red]点生命上限，获得[gold]5[/gold]点力量，并进入[red]魔女化[/red]。[red]魔女化[/red]期间无法获得[red]杀意冲动[/red]。",
+
+  "HIRO-WITCH_FORM_POWER.title": "魔女化",
+  "HIRO-WITCH_FORM_POWER.description": "获得时，获得{energyPrefix:energyIcons(3)}并抽[blue]3[/blue]张牌。在你的每个回合开始时，失去5点生命上限，获得{energyPrefix:energyIcons(3)}并抽[blue]3[/blue]张牌，倒计时归零时死亡，期间每获得1层正义可以获得1点生命上限。",
+  "HIRO-WITCH_FORM_POWER.smartDescription": "获得时，获得{energyPrefix:energyIcons(3)}并抽[blue]3[/blue]张牌。在你的每个回合开始时，失去5点生命上限，获得{energyPrefix:energyIcons(3)}并抽[blue]3[/blue]张牌，倒计时归零时死亡,期间每获得1层正义可以获得1点生命上限。",
+
+  "HIRO-DIANTINEI_POWER.title": "艾玛！！！！！",
+  "HIRO-DIANTINEI_POWER.description": "在你的每个回合开始时，获得[blue]3[/blue]层[red]杀意冲动[/red]。",
+  "HIRO-DIANTINEI_POWER.smartDescription": "在你的每个回合开始时，获得[blue]3[/blue]层[red]杀意冲动[/red]。",
+
+  "HIRO-SHIPO_REFUND.title": "冷静思考",
+  "HIRO-SHIPO_REFUND.description": "每当[gold]识破[/gold]被减少时，返还一半。",
+  "HIRO-SHIPO_REFUND.smartDescription": "每当[gold]识破[/gold]被减少时，返还其[blue]{RefundPercent}%[/blue]。",
+
+  "HIRO-DRAW_POWER.title": "听取证据",
+  "HIRO-DRAW_POWER.description": "下个回合额外抽牌。",
+  "HIRO-DRAW_POWER.smartDescription": "下个回合额外抽{Draw:diff()}张牌。",
+
+
+  "HIRO-ANXIYISHI_POWER.title":"魔女安息仪式",
+  "HIRO-ANXIYISHI_POWER.description":"你的攻击牌可以对所有敌人再生效一次。",
+  "HIRO-ANXIYISHI_POWER.smartDescription":"你的攻击牌可以对所有敌人再生效一次。",
+
+  "HIRO-WODEDAOLU_POWER.title":"我的道路",
+  "HIRO-WODEDAOLU_POWER.description": "每当你获得[gold]正义[/gold] 时，获得[blue]格挡[/blue]。",
+  "HIRO-WODEDAOLU_POWER.smartDescription": "每当你获得[gold]正义[/gold]时，获得{Amount}点[blue]格挡[/blue]。",
+
+  "HIRO-BINFENSECAI_POWER.title":"缤！纷！色！彩！",
+  "HIRO-BINFENSECAI_POWER.description":"回合开始时将色彩加入手牌。",
+  "HIRO-BINFENSECAI_POWER.smartDescription":"回合开始时将[blue]{Amount}[/blue]张色彩加入手牌。",
+
+  "HIRO-XINNIAN_POWER.title":"信念",
+  "HIRO-XINNIAN_POWER.description":"回合开始时获得能量。",
+  "HIRO-XINNIAN_POWER.smartDescription":"在每回合开始时获得{Amount:energyIcons()}。",
+
+  "HIRO-JUEWU_POWER.title":"觉悟",
+  "HIRO-JUEWU_POWER.description":"回合开始时获得[gold]正义[/gold]",
+  "HIRO-JUEWU_POWER.smartDescription":"回合开始时获得[blue]{Amount}[/blue]层[gold]正义[/gold]。",
+
+  "HIRO-XUEHUDIE_POWER.title":"血蝴蝶",
+  "HIRO-XUEHUDIE_POWER.description":"[gold]色彩[/gold]打出时会对所有人生效。",
+  "HIRO-XUEHUDIE_POWER.smartDescription":"[gold]色彩[/gold]打出时会对所有人生效。",
+
+  "HIRO-JIETOUYISHUJIA_POWER.title":"街头艺术家",
+  "HIRO-JIETOUYISHUJIA_POWER.description":"打出[gold]色彩[/gold]或[gold]黑白[/gold]时获得[gold]格挡[/gold]",
+  "HIRO-JIETOUYISHUJIA_POWER.smartDescription":"打出[gold]色彩[/gold]或[gold]黑白[/gold]时获得[blue]{Amount}[/blue]点[gold]格挡[/gold]",
+
+  "HIRO-WUTAIJU_POWER.title":"舞台剧",
+  "HIRO-WUTAIJU_POWER.description":"打出[gold]色彩[/gold]时抽牌。",
+  "HIRO-WUTAIJU_POWER.smatrDescription":"打出[gold]色彩[/gold]时抽[blue]{Amount}[/blue]张牌。",
+
+  "HIRO-GANHEDEWENQUAN_POWER.title":"干涸的温泉",
+  "HIRO-GANHEDEWENQUAN_POWER.description":"打出[gold]黑白[/gold]时将带有虚无词条的随机攻击牌加入手牌。",
+  "HIRO-GANHEDEWENQUAN_POWER.smartDescription":"打出[gold]黑白[/gold]时将[blue]{Amount}[/blue]张带有虚无词条的随机攻击牌加入手牌。"
+
+}

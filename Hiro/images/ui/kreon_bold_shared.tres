@@ -1,0 +1,6 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://cqdsl456pstpk"]
+
+[ext_resource type="FontFile" uid="uid://b4ycmyjxpo5f5" path="res://Hiro/fonts/kreon_bold.ttf" id="1_wde4t"]
+
+[resource]
+base_font = ExtResource("1_wde4t")

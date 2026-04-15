@@ -1,0 +1,18 @@
+{
+
+  "HIRO-HIRO_CHARACTER.aromaPrinciple": "[sine][blue]……等待……[/blue][/sine]",
+  "HIRO-HIRO_CHARACTER.banter.alive.endTurnPing": "-.-",
+  "HIRO-HIRO_CHARACTER.banter.dead.endTurnPing": "又要回溯了吗......",
+  "HIRO-HIRO_CHARACTER.cardsModifierDescription": "希罗的卡牌现在会出现在奖励和商店中。",
+  "HIRO-HIRO_CHARACTER.cardsModifierTitle": "希罗卡牌",
+  "HIRO-HIRO_CHARACTER.description": "自认为在梦中的少女。她已经重来多少次了呢？",
+  "HIRO-HIRO_CHARACTER.eventDeathPrevention": "我还得再来一次……",
+  "HIRO-HIRO_CHARACTER.goldMonologue": "[sine]这些金币……也许能派上用场……[/sine]",
+  "HIRO-HIRO_CHARACTER.possessiveAdjective": "她的",
+  "HIRO-HIRO_CHARACTER.pronounObject": "她",
+  "HIRO-HIRO_CHARACTER.pronounPossessive": "她的",
+  "HIRO-HIRO_CHARACTER.pronounSubject": "她",
+  "HIRO-HIRO_CHARACTER.title": "二阶堂希罗",
+  "HIRO-HIRO_CHARACTER.titleObject": "希罗",
+  "HIRO-HIRO_CHARACTER.unlockText": "用[pink]{Prerequisite}[/pink]进行一局游戏来解锁这个角色。"
+}

@@ -1,0 +1,10 @@
+{
+  "HIRO-PEN.title": "钢笔",
+  "HIRO-PEN.description": "每回合开始时，获得[blue]1[/blue]点活力。",
+  "HIRO-PEN.flavor": "来自朋友的礼物，这使你充满了决心。",
+
+  "HIRO-BROKEN_PEN.title":"破损的钢笔",
+  "HIRO-BROKEN_PEN.description":"战斗开始时，获得[blue]10[/blue]层正义。",
+  "HIRO-BROKEN_PEN.flavor":"曾寄宿大魔女灵魂的容器。"
+  
+}
