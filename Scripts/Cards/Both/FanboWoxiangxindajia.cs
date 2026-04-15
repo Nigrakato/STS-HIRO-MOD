@@ -52,4 +52,4 @@ public sealed class FanboWoxiangxindajia : AbstractHiroCard
         base.DynamicVars.Energy.UpgradeValueBy(1m);
         base.DynamicVars.Cards.UpgradeValueBy(1m);
     }
-}
+} 
