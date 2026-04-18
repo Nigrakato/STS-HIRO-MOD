@@ -18,7 +18,7 @@ public class Fengbineixin : AbstractHiroCard
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new BlockVar(21, ValueProp.Move)
+        new BlockVar(16, ValueProp.Move)
     ];
 
     protected override void OnUpgrade()

@@ -15,64 +15,61 @@ public static class PowerHelper
 {
     public static readonly List<PowerEntry> SecaiPool = new()
     {
-        new(typeof(VigorPower),7),        //活力
-        new(typeof(PlatingPower),7),      //覆甲
-        new(typeof(SummonNextTurnPower),7),//下回合召唤
-        new(typeof(StrengthPower), 5),    //力量
-        new(typeof(DexterityPower), 5),   //敏捷
-        new(typeof(ThornsPower), 5),      //荆棘
-        new(typeof(RetainHandPower),5),   //保留手牌
-        new(typeof(ArtifactPower),5),    //人工
-        new(typeof(InfiniteBladesPower),3), //无尽刀刃
-        new(typeof(RollingBoulderPower),3),//滚石
-        new(typeof(VulnerablePower),3),  //易伤
-        new(typeof(WeakPower),3),        //虚弱
-        new(typeof(DoomPower),3),        //灾厄
-        new(typeof(MachineLearningPower),3),//机器学习
-        new(typeof(MonologuePower),3),    //独白
-        new(typeof(NostalgiaPower),3),   //怀旧
-        new(typeof(PrepTimePower),3),   //准备时间
-        new(typeof(RitualPower),3),     //仪式
-        new(typeof(FocusPower),3),     //集中
-        new(typeof(FrailPower),3),    //脆弱
-        new(typeof(FurnacePower),3), //熔炉
-        new(typeof(MayhemPower),1),    //乱战
-        new(typeof(IntangiblePower),1),   //无实体
-        new(typeof(MindRotPower),1),      //心灵腐化
-        new(typeof(NeurosurgePower),1),   //精神过载
-        new(typeof(PyrePower),1),         //薪火之源
-        new(typeof(SerpentFormPower),1), //群蛇形态
-        new(typeof(ShadowmeldPower),1),  //融入暗影
-        new(typeof(SleightOfFleshPower),1), //血肉戏法
-        new(typeof(SpeedsterPower),1),    //速行者
-        new(typeof(SwordSagePower),1),    //剑圣
-        new(typeof(SeekingEdgePower),1),  //追踪之刃
-        new(typeof(TheSealedThronePower),1),//封印王座
-        new(typeof(CallOfTheVoidPower),1),//虚空之唤
-        new(typeof(AccelerantPower),1), //触媒
-        new(typeof(AutomationPower),1),  //自动化
-        new(typeof(CreativeAiPower),1),  //AI
-        new(typeof(ForbiddenGrimoirePower),1), //禁忌魔典
-        new(typeof(DemonFormPower),1),   //恶魔形态
-        new(typeof(BufferPower),1),   //缓冲
-        new(typeof(BarricadePower),1),  //壁垒
-        new(typeof(GigantificationPower),1)  //极巨化
+        new(typeof(VigorPower),100),          //活力
+        new(typeof(SummonNextTurnPower),100), //下回合召唤
+        new(typeof(StrengthPower), 80),       //力量
+        new(typeof(DexterityPower), 80),      //敏捷
+        new(typeof(ThornsPower), 70),         //荆棘
+        new(typeof(RetainHandPower),70),      //保留手牌
+        new(typeof(InfiniteBladesPower),50),  //无尽刀刃
+        new(typeof(RollingBoulderPower),30),  //滚石
+        new(typeof(VulnerablePower),30),      //易伤
+        new(typeof(WeakPower),30),            //虚弱
+        new(typeof(DoomPower),30),            //灾厄
+        new(typeof(MachineLearningPower),20), //机器学习
+        new(typeof(MonologuePower),20),       //独白
+        new(typeof(NostalgiaPower),20),       //怀旧
+        new(typeof(PrepTimePower),20),        //准备时间
+        new(typeof(RitualPower),10),          //仪式
+        new(typeof(FocusPower),10),           //集中
+        new(typeof(FrailPower),10),           //脆弱
+        new(typeof(FurnacePower),50),         //熔炉
+        new(typeof(MayhemPower),40),          //乱战
+        new(typeof(IntangiblePower),10),      //无实体
+        new(typeof(MindRotPower),10),         //心灵腐化
+        new(typeof(NeurosurgePower),10),      //精神过载
+        new(typeof(PyrePower),20),            //薪火之源
+        new(typeof(SerpentFormPower),10),     //群蛇形态
+        new(typeof(ShadowmeldPower),5),       //融入暗影
+        new(typeof(SleightOfFleshPower),10),  //血肉戏法
+        new(typeof(SpeedsterPower),10),       //速行者
+        new(typeof(SwordSagePower),10),       //剑圣
+        new(typeof(SeekingEdgePower),10),     //追踪之刃
+        new(typeof(TheSealedThronePower),10), //封印王座
+        new(typeof(CallOfTheVoidPower),10),   //虚空之唤
+        new(typeof(AccelerantPower),10),      //触媒
+        new(typeof(AutomationPower),20),      //自动化
+        new(typeof(CreativeAiPower),20),      //AI
+        new(typeof(ForbiddenGrimoirePower),1),//禁忌魔典
+        new(typeof(DemonFormPower),30),       //恶魔形态
+        new(typeof(BufferPower),10),          //缓冲
+        new(typeof(BarricadePower),10),       //壁垒
+        new(typeof(GigantificationPower),20), //极巨化
+        new(typeof(WasteAwayPower),1),        //衰朽
     };
 
     public static readonly List<PowerEntry> HeibaiPool = new()
     {
-        new(typeof(VulnerablePower),7),  //易伤
-        new(typeof(WeakPower),7),        //虚弱
+        new(typeof(VulnerablePower),40),  //易伤
+        new(typeof(WeakPower),40),        //虚弱
         new(typeof(VigorPower),7),        //活力
-        new(typeof(PlatingPower),5),      //覆甲
-        new(typeof(DebilitatePower),5),  //摧残
-        new(typeof(PoisonPower),3),   //中毒
-        new(typeof(DemisePower),3),  //消亡
-        new(typeof(DoomPower),3),        //灾厄
-        new(typeof(StrengthPower), 1),    //力量
+        new(typeof(DebilitatePower),5),   //摧残
+        new(typeof(PoisonPower),20),      //中毒
+        new(typeof(DemisePower),10),      //消亡
+        new(typeof(DoomPower),20),        //灾厄
+        new(typeof(StrengthPower),5),     //力量
         new(typeof(IntangiblePower),1),   //无实体
-        new(typeof(ArtifactPower),1),    //人工
-        new(typeof(BufferPower),1),   //缓冲
+        new(typeof(BufferPower),1),       //缓冲
     };
 
     public class PowerEntry
@@ -113,56 +110,13 @@ public static class PowerHelper
         Creature target,
         CardModel? cardSource)
     {
-        bool isEnemyTarget = target.Side == CombatSide.Enemy;
-        bool isProblematicPower = powerType == typeof(PlatingPower) || powerType == typeof(ArtifactPower);
-
-        if (isEnemyTarget && isProblematicPower)
-        {
-            var applyMethod = typeof(PowerCmd)
-                .GetMethods()
-                .First(m =>
-                {
-                    if (m.Name != "Apply" || !m.IsGenericMethod)
-                        return false;
-                    var ps = m.GetParameters();
-                    return ps.Length == 5
-                        && ps[0].ParameterType == typeof(Creature)
-                        && ps[1].ParameterType == typeof(decimal)
-                        && ps[2].ParameterType == typeof(Creature)
-                        && ps[3].ParameterType == typeof(CardModel)
-                        && ps[4].ParameterType == typeof(bool);
-                });
-
-            var applyGeneric = applyMethod.MakeGenericMethod(powerType);
-            var applyTask = (Task)applyGeneric.Invoke(null, new object?[] { target, 0m, source, cardSource, false })!;
-            await applyTask;
-
-            var setAmountMethod = typeof(PowerCmd)
-                .GetMethods()
-                .First(m =>
-                {
-                    if (m.Name != "SetAmount" || !m.IsGenericMethod)
-                        return false;
-                    var ps = m.GetParameters();
-                    return ps.Length == 4 
-                        && ps[0].ParameterType == typeof(Creature)
-                        && ps[1].ParameterType == typeof(decimal)
-                        && ps[2].ParameterType == typeof(Creature)
-                        && ps[3].ParameterType == typeof(CardModel);
-                });
-
-            var setAmountGeneric = setAmountMethod.MakeGenericMethod(powerType);
-            var setAmountTask = (Task)setAmountGeneric.Invoke(null, new object?[] { target, 1m, source, cardSource })!;
-            await setAmountTask;
-            return;
-        }
-
         var method = typeof(PowerCmd)
             .GetMethods()
             .First(m =>
             {
                 if (m.Name != "Apply" || !m.IsGenericMethod)
                     return false;
+
                 var ps = m.GetParameters();
                 return ps.Length == 5
                     && ps[0].ParameterType == typeof(Creature)
@@ -174,6 +128,7 @@ public static class PowerHelper
 
         var generic = method.MakeGenericMethod(powerType);
         var result = generic.Invoke(null, new object?[] { target, 1m, source, cardSource, false })!;
+
         if (result is Task task)
         {
             await task;

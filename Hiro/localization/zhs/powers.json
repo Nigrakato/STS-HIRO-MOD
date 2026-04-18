@@ -25,7 +25,7 @@
 
   "HIRO-DRAW_POWER.title": "听取证据",
   "HIRO-DRAW_POWER.description": "下个回合额外抽牌。",
-  "HIRO-DRAW_POWER.smartDescription": "下个回合额外抽{Draw:diff()}张牌。",
+  "HIRO-DRAW_POWER.smartDescription": "下个回合额外抽{Amount}张牌。",
 
 
   "HIRO-ANXIYISHI_POWER.title":"魔女安息仪式",
@@ -60,8 +60,8 @@
   "HIRO-WUTAIJU_POWER.description":"打出[gold]色彩[/gold]时抽牌。",
   "HIRO-WUTAIJU_POWER.smatrDescription":"打出[gold]色彩[/gold]时抽[blue]{Amount}[/blue]张牌。",
 
-  "HIRO-GANHEDEWENQUAN_POWER.title":"干涸的温泉",
-  "HIRO-GANHEDEWENQUAN_POWER.description":"打出[gold]黑白[/gold]时将带有虚无词条的随机攻击牌加入手牌。",
-  "HIRO-GANHEDEWENQUAN_POWER.smartDescription":"打出[gold]黑白[/gold]时将[blue]{Amount}[/blue]张带有虚无词条的随机攻击牌加入手牌。"
+  "HIRO-GANHEDEWENQUAN_POWER.title":"干涸的喷泉",
+  "HIRO-GANHEDEWENQUAN_POWER.description":"打出[gold]黑白[/gold]时将带有虚无词条的随机攻击牌加入手牌，本回合免费打出。",
+  "HIRO-GANHEDEWENQUAN_POWER.smartDescription":"打出[gold]黑白[/gold]时将[blue]{Amount}[/blue]张带有虚无词条的随机攻击牌加入手牌，本回合免费打出。"
 
 }

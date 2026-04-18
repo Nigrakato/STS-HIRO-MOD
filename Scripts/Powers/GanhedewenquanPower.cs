@@ -45,6 +45,7 @@ public sealed class GanhedewenquanPower : AbstractHiroPower
                 {
                     var randomCard = CardFactory.GetDistinctForCombat(player, attackPool, 1, rng).First();
                     CardCmd.ApplyKeyword(randomCard, CardKeyword.Ethereal);
+                    randomCard.SetToFreeThisTurn();
                     generatedCards[i] = randomCard;
                 }
 

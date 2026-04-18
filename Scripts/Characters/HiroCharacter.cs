@@ -81,6 +81,7 @@ public class HiroCharacter : PlaceholderCharacterModel
 	   ModelDb.Card<Strike>(),
 	   ModelDb.Card<Strike>(),
 	   ModelDb.Card<Strike>(),
+	   ModelDb.Card<Strike>(),
 	   ModelDb.Card<Defend>(),
 	   ModelDb.Card<Defend>(),
 	   ModelDb.Card<Defend>(),

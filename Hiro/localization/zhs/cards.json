@@ -40,7 +40,7 @@
   "HIRO-WEIZHENG.description": "变化所有手牌。",
  
   "HIRO-NUOYADEHUASHI.title": "诺亚的画室",
-  "HIRO-NUOYADEHUASHI.description": "将1张[gold]色彩[/gold]和1张[gold]黑白[/gold]置入手牌。",
+  "HIRO-NUOYADEHUASHI.description": "将1张[gold]{IfUpgraded:show:色彩+|色彩}[/gold]和1张[gold]{IfUpgraded:show:黑白+|黑白}[/gold]置入手牌。",
  
   "HIRO-AIMA.title": "艾玛！！！！！",
   "HIRO-AIMA.description": "打出时，获得{Energy:energyIcons()}并抽{Draw:diff()}张牌。此后每回合开始时，获得{Power:diff()}层[red]杀意冲动[/red]。",
@@ -91,7 +91,7 @@
   "HIRO-ZHENGLILUOJI.description": "[gold]正义  [/gold]\n获得{Block:diff()}点[gold]格挡[/gold]。\n抽{Draw:diff()}张牌。",
  
   "HIRO-FENGBINEIXIN.title": "封闭内心",
-  "HIRO-FENGBINEIXIN.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n本回合不能再抽牌。",
+  "HIRO-FENGBINEIXIN.description": "[gold]正义  [/gold]\n获得{Block:diff()}点[gold]格挡[/gold]。\n本回合不能再抽牌。",
   
   "HIRO-NUOYAGONGYU.title": "诺亚共浴",
   "HIRO-NUOYAGONGYU.description": "{IfUpgraded:show:选择|随机}消耗手牌中的一张卡。\n将一张[gold]色彩[/gold]加入手牌。",
@@ -110,7 +110,7 @@
   "HIRO-SIQUDEHUIYI.description": "获得{Hiro-Shipo:diff()}层[gold]识破[/gold]和{Block:diff()}点[gold]格挡[/gold]。\n从弃牌堆选择一张牌加入手牌。",
   
   "HIRO-NUOYADEMOFA.title": "诺亚的魔法",
-  "HIRO-NUOYADEMOFA.description": "将手牌全部变为{IfUpgraded:show:色彩+|色彩}。",
+  "HIRO-NUOYADEMOFA.description": "将手牌中的非攻击牌全部变为{IfUpgraded:show:色彩+|色彩}。",
   
   "HIRO-ANXIYISHI.title": "魔女安息仪式",
   "HIRO-ANXIYISHI.description": "你的攻击牌可以对所有敌人再生效一次。\n获得{IfUpgraded:show:4|3}层仪式。\n仅当[gold]正义[/gold]大于6层时可以打出。",
@@ -119,7 +119,7 @@
   "HIRO-WODEDAOLU.description": "获得[gold]正义[/gold]时获得{IfUpgraded:show:4|2}点[gold]格挡[/gold]",
   
   "HIRO-ZHUIWEN.title": "追问",
-  "HIRO-ZHUIWEN.description": "[gold]正义  [/gold]\n获得{IfUpgraded:show:5x|4x}层[gold]识破[/gold]。",
+  "HIRO-ZHUIWEN.description": "[gold]正义  [/gold]\n获得{IfUpgraded:show:7x|6x}层[gold]识破[/gold]。",
   
   "HIRO-CHUSHIZHENGJU.title": "出示证据",
   "HIRO-CHUSHIZHENGJU.description": "选择手牌中的一张攻击或技能牌，将其打出{Repeat:diff()}次，随后消耗。",
@@ -179,14 +179,14 @@
   "HIRO-WUTAIJU.title": "舞台剧",
   "HIRO-WUTAIJU.description": "打出[gold]色彩[/gold]时抽1张牌。",
  
-  "HIRO-GANHEDEWENQUAN.title": "干涸的温泉",
-  "HIRO-GANHEDEWENQUAN.description": "打出[gold]黑白[/gold]时将带有虚无词条的1张随机攻击牌加入手牌。",
+  "HIRO-GANHEDEWENQUAN.title": "干涸的喷泉",
+  "HIRO-GANHEDEWENQUAN.description": "打出[gold]黑白[/gold]时将带有虚无词条的1张随机攻击牌加入手牌，本回合免费打出。",
  
   "HIRO-WOSUOJIANXINDE.title": "我所坚信的",
   "HIRO-WOSUOJIANXINDE.description": "获得三倍[red]杀意冲动[/red]({PlatVal:diff()})层覆甲。",
  
   "HIRO-ZHENGYIZHUIQIU.title": "正义追求",
-  "HIRO-ZHENGYIZHUIQIU.description": "造成等同与你当前[gold]正义[/gold]层数（{Damage:diff()}）点伤害。",
+  "HIRO-ZHENGYIZHUIQIU.description": "造成10加你当前[gold]正义[/gold]层数三倍的伤害，然后清除你所有的正义。",
  
   "HIRO-HAQI.title": "哈气",
   "HIRO-HAQI.description": "对所有敌人造成{Damage:diff()}点伤害。所有敌人失去{StrLoss:diff()}点[gold]力量[/gold]一回合。",
@@ -195,11 +195,22 @@
   "HIRO-CHENGSHENGZHUIJI.description": "[gold]正义  [/gold]\n造成{Damage:diff()}点伤害。如果你本回合打出的上一张牌是攻击牌，则额外造成一次伤害。",
   
   "HIRO-BAOTOUDUNFANG.title": "抱头蹲防",
-  "HIRO-BAOTOUDUNFANG.description": "[gold]正义  [/gold]\n获得{Block:diff()}点[gold]格挡[/gold]。",
+  "HIRO-BAOTOUDUNFANG.description": "获得{Block:diff()}点[gold]格挡[/gold]。",
 
   "HIRO-WUWEIKUNAN.title": "无畏苦难",
   "HIRO-WUWEIKUNAN.description": "[gold]正义  [/gold]\n获得{Block:diff()}点[gold]格挡[/gold]和2层[gold]正义[/gold]。",
 
   "HIRO-YISHIJIAN.title": "简易-仪式剑-长矛",
-  "HIRO-YISHIJIAN.description": "造成{Damage:diff()}点伤害{Repeat:diff()}次，给予{VulnerablePower:diff()}层[gold]易伤[/gold]。"
+  "HIRO-YISHIJIAN.description": "造成{Damage:diff()}点伤害{Repeat:diff()}次，给予{VulnerablePower:diff()}层[gold]易伤[/gold]。",
+
+  "HIRO-CUILIANHUOGUN.title": "淬炼火棍",
+  "HIRO-CUILIANHUOGUN.description": "造成{Damage:diff()}点伤害。受到[gold]识破[/gold]的伤害加成额外提高{ShipoBonusRate:diff()}%\n可多次升级",
+
+  "HIRO-CAIHONGYU.title": "彩虹雨",
+  "HIRO-CAIHONGYU.description": "本场战斗中每打出一张[gold]色彩[/gold]，就造成{Damage:diff()}点伤害一次。{InCombat:\n（攻击{SecaiHits:diff()}次）|}",
+
+  "HIRO-WUCAIBANLANDEHEI.title": "五彩斑斓的黑",
+  "HIRO-WUCAIBANLANDEHEI.description": "本回合每打出一张[gold]色彩[/gold]或[gold]黑白[/gold]，就对所有敌人造成{Damage:diff()}点伤害一次。{InCombat:\n（攻击{ColorHits:diff()}次）|}"
+
+
 }

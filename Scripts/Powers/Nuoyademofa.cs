@@ -13,7 +13,7 @@ namespace Hiro.Scripts.Cards
     public sealed class Nuoyademofa : AbstractHiroCard
     {
         protected override IEnumerable<IHoverTip> ExtraHoverTips => new[] { HoverTipFactory.FromCard<Secai>(base.IsUpgraded) };
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+        public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
         public Nuoyademofa() 
             : base(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
@@ -25,7 +25,7 @@ namespace Hiro.Scripts.Cards
             await CreatureCmd.TriggerAnim(base.Owner.Creature, "Cast", base.Owner.Character.CastAnimDelay);
 
             List<CardModel> handCards = PileType.Hand.GetPile(base.Owner).Cards
-                .Where(c => c != null && c.IsTransformable)
+                .Where(c => c != null && c.IsTransformable && c.Type != CardType.Attack)
                 .ToList();
 
             foreach (var card in handCards)

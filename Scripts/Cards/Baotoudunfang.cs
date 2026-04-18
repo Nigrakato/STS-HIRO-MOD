@@ -17,11 +17,11 @@ namespace Hiro.Scripts.Cards
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
 
-        protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(15m, ValueProp.Move)];
+        protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(12m, ValueProp.Move)];
 
         protected override void OnUpgrade()
         {
-            DynamicVars.Block.UpgradeValueBy(5m);
+            DynamicVars.Block.UpgradeValueBy(4m);
         }
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

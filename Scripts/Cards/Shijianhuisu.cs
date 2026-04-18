@@ -14,12 +14,12 @@ namespace Hiro.Scripts.Cards
     {
         protected override IEnumerable<DynamicVar> CanonicalVars =>
         [
-            new ShayiVar(1),
+            new ShayiVar(2),
             new EnergyVar(1)
         ];
 
         public Shijianhuisu() 
-            : base(0, CardType.Skill, CardRarity.Common, TargetType.Self)
+            : base(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
         {
         }
 

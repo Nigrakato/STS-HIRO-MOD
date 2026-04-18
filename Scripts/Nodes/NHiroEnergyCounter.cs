@@ -4,5 +4,6 @@ namespace Hiro.Scripts.Nodes;
 
 public partial class NHiroEnergyCounter : NEnergyCounter
 {
-	
+
+
 }

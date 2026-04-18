@@ -1,7 +1,8 @@
-using Hiro.Scripts.Cards;
-using Hiro.Scripts.Powers;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Hiro.Scripts.Cards;
+using Hiro.Scripts.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -21,14 +22,15 @@ namespace Hiro.Scripts.Cards
             public override void UpdateCardPreview(CardModel card, CardPreviewMode previewMode, Creature? target, bool runGlobalHooks)
             {
                 base.UpdateCardPreview(card, previewMode, target, runGlobalHooks);
-                
+
                 int justice = card.Owner?.Creature.GetPowerAmount<Justice>() ?? 0;
-                this.PreviewValue = base.PreviewValue + justice;
+                PreviewValue = 10 + 3 * justice;
             }
         }
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
-        public Zhengyizhuiqiu() 
-            : base(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+        public Zhengyizhuiqiu()
+            : base(3, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
         {
         }
 
@@ -38,17 +40,26 @@ namespace Hiro.Scripts.Cards
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
-            int finalDamage = DynamicVars.Damage.IntValue + Owner.Creature.GetPowerAmount<Justice>();
-            
+            ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
+
+            int justice = Owner.Creature.GetPowerAmount<Justice>();
+            int finalDamage = 10 + 3 * justice;
+
             await DamageCmd.Attack(finalDamage)
                 .FromCard(this)
                 .Targeting(cardPlay.Target!)
                 .Execute(choiceContext);
+
+            if (justice > 0)
+            {
+                await PowerCmd.Apply<Justice>(Owner.Creature, -justice, Owner.Creature, this);
+            }
         }
 
         protected override void OnUpgrade()
         {
-            base.EnergyCost.UpgradeBy(-1);
+                    base.EnergyCost.UpgradeBy(-1);
+
         }
     }
 }

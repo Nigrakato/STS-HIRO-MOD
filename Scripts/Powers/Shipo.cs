@@ -10,6 +10,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
+using Hiro.Scripts.Cards;
 
 namespace Hiro.Scripts.Powers
 {
@@ -50,7 +51,16 @@ namespace Hiro.Scripts.Powers
                 return 1m;
             }
 
-            return 1m + (Amount * 0.1m);
+            decimal perStackBonus = 0.1m;
+
+            if (cardSource is Cuilianhuogun cuilianhuogun)
+            {
+            decimal extraRatePercent = cuilianhuogun.DynamicVars["ShipoBonusRate"].BaseValue;
+            decimal extraRate = extraRatePercent / 100m;
+            perStackBonus *= (1m + extraRate); 
+            }
+
+            return 1m + (Amount * perStackBonus);
         }
 
         public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
@@ -68,7 +78,5 @@ namespace Hiro.Scripts.Powers
                 }
             }
         }
-
     }
-    
 }

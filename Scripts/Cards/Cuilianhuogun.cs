@@ -1,48 +1,44 @@
-using Hiro.Scripts.Keywords;
-using Hiro.Scripts.Powers;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Hiro.Scripts.Cards
 {
-    public class Zhengjiudajia : AbstractHiroCard
+    public class Cuilianhuogun : AbstractHiroCard
     {
-        public Zhengjiudajia() : base(2, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
+        public Cuilianhuogun() : base(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
         {
         }
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [HiroCardKeywords.Error];
 
+        public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
+
+        public override int MaxUpgradeLevel => 99999999;
 
         protected override IEnumerable<DynamicVar> CanonicalVars => new DynamicVar[]
         {
-            new DamageVar(1m, ValueProp.Move),
-            new RepeatVar(12)
+            new DamageVar(15m, ValueProp.Move),
+            new DynamicVar("ShipoBonusRate", 25m)
         };
 
         protected override void OnUpgrade()
         {
-            DynamicVars.Damage.UpgradeValueBy(1m);
+            DynamicVars.Damage.UpgradeValueBy(4m);
+            DynamicVars["ShipoBonusRate"].UpgradeValueBy(25m);
         }
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
-            ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
+            ArgumentNullException.ThrowIfNull(cardPlay.Target, nameof(cardPlay.Target));
 
             await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-                .WithHitCount(DynamicVars["Repeat"].IntValue)
                 .FromCard(this)
                 .Targeting(cardPlay.Target)
                 .WithHitFx("vfx/vfx_attack_blunt")
                 .Execute(choiceContext);
         }
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-    HoverTipFactory.FromPower<KillImpulsePower>(),
-    HoverTipFactory.FromPower<WitchFormPower>()
-
-    ];
     }
 }

@@ -18,13 +18,13 @@ public class Shipocard : AbstractHiroCard
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new BlockVar(8, ValueProp.Move),
-        new ShipoVar(2)
+        new ShipoVar(6)
     ];
 
     protected override void OnUpgrade()
     {
         DynamicVars.Block.UpgradeValueBy(3);
-        DynamicVars[ShipoVar.Key].UpgradeValueBy(1);
+        DynamicVars[ShipoVar.Key].UpgradeValueBy(2);
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

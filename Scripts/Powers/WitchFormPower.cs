@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -14,7 +15,7 @@ namespace Hiro.Scripts.Powers
         public const int BaseTurns = 6;
         public const int DrawPerTurn = 3;
         public const int EnergyPerTurn = 3;
-        private const int MaxHpLoss = 5; 
+        private const int MaxHpLoss = 5;
 
         public override PowerType Type => PowerType.Buff;
         public override PowerStackType StackType => PowerStackType.Counter;
@@ -38,9 +39,17 @@ namespace Hiro.Scripts.Powers
 
             if (target.Player != null)
             {
-               await CreatureCmd.LoseMaxHp(choiceContext, target, MaxHpLoss, false);
+                await CreatureCmd.LoseMaxHp(choiceContext, target, MaxHpLoss, false);
                 await ResolveGainEffect(choiceContext, target.Player);
             }
+        }
+
+        public override decimal ModifyHandDraw(Player player, decimal count)
+        {
+            if (Owner == null || Owner.IsDead || Owner.Player != player)
+                return count;
+
+            return count + DrawPerTurn;
         }
 
         private static async Task ResolveGainEffect(PlayerChoiceContext choiceContext, Player player)
@@ -54,9 +63,9 @@ namespace Hiro.Scripts.Powers
             if (Owner == null || Owner.IsDead || Owner.Player != player) return;
 
             Flash();
-         await CreatureCmd.LoseMaxHp(choiceContext, Owner, MaxHpLoss, false);
+            await CreatureCmd.LoseMaxHp(choiceContext, Owner, MaxHpLoss, false);
 
-            await ResolveGainEffect(choiceContext, player);
+            await PlayerCmd.GainEnergy(EnergyPerTurn, player);
             await PowerCmd.ModifyAmount(this, -1m, Owner, null);
             if (Amount <= 0)
             {

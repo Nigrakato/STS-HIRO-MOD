@@ -21,7 +21,7 @@ namespace Hiro.Scripts.Cards
     public override IEnumerable<CardKeyword> CanonicalKeywords => [HiroCardKeywords.Zhengyi,CardKeyword.Retain];
 
         protected override IEnumerable<DynamicVar> CanonicalVars => [
-            new ShipoVar(4m)
+            new ShipoVar(6m)
         ];
 
         protected override void OnUpgrade()

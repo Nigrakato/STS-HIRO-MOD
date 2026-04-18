@@ -7,7 +7,10 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
-using Godot; 
+using Godot;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Hiro.Scripts.Powers
 {
@@ -15,9 +18,9 @@ namespace Hiro.Scripts.Powers
     {
         private class Data
         {
-            public bool hasReached10; 
-            public bool hasReached20;  
-            public bool hasReached30;  
+            public bool hasReached10;
+            public bool hasReached20;
+            public bool hasReached30;
             public bool hasTriggeredInstant10;
             public bool hasTriggeredInstant20;
         }
@@ -42,6 +45,17 @@ namespace Hiro.Scripts.Powers
             await PowerCmd.Apply<Justice>(target, amount, applier, cardSource);
         }
 
+        public override decimal ModifyHandDraw(Player player, decimal count)
+        {
+            if (Owner == null || Owner.IsDead || Owner.Player != player)
+                return count;
+
+            if (JusticeData.hasReached10)
+                return count + 1m;
+
+            return count;
+        }
+
         public override async Task AfterPowerAmountChanged(PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
         {
             if (power != this || Owner == null || Owner.Player == null || !CombatManager.Instance.IsInProgress)
@@ -58,7 +72,7 @@ namespace Hiro.Scripts.Powers
             {
                 JusticeData.hasReached10 = true;
                 Flash();
-                
+
                 try
                 {
                     await CardPileCmd.Draw(null, 1, Owner.Player);
@@ -66,7 +80,6 @@ namespace Hiro.Scripts.Powers
                 }
                 catch
                 {
-                    
                 }
             }
 
@@ -74,7 +87,7 @@ namespace Hiro.Scripts.Powers
             {
                 JusticeData.hasReached20 = true;
                 Flash();
-                
+
                 try
                 {
                     await PlayerCmd.GainEnergy(1, Owner.Player);
@@ -104,24 +117,14 @@ namespace Hiro.Scripts.Powers
             if (Owner == null || Owner.IsDead || Owner.Player != player)
                 return;
 
-            if (JusticeData.hasReached10)
-            {
-                if (!JusticeData.hasTriggeredInstant10)
-                {
-                    JusticeData.hasTriggeredInstant10 = true;
-                    await CardPileCmd.Draw(choiceContext, 1, player); 
-                }
-                await CardPileCmd.Draw(choiceContext, 1, player); 
-            }
-
             if (JusticeData.hasReached20)
             {
                 if (!JusticeData.hasTriggeredInstant20)
                 {
                     JusticeData.hasTriggeredInstant20 = true;
-                    await PlayerCmd.GainEnergy(1, player); 
+                    await PlayerCmd.GainEnergy(1, player);
                 }
-                await PlayerCmd.GainEnergy(1, player); 
+                await PlayerCmd.GainEnergy(1, player);
             }
         }
 

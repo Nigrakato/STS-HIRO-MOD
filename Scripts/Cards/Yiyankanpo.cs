@@ -11,19 +11,19 @@ namespace Hiro.Scripts.Cards;
 
 public class Yiyankanpo : AbstractHiroCard
 {
-    public Yiyankanpo() : base(0, CardType.Skill, CardRarity.Common, TargetType.Self)
+    public Yiyankanpo() : base(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
     {
     }
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [HiroCardKeywords.Zhengyi,CardKeyword.Exhaust];
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new ShipoVar(5)
+        new ShipoVar(10)
     ];
 
     protected override void OnUpgrade()
     {
-        DynamicVars[ShipoVar.Key].UpgradeValueBy(2);
+        DynamicVars[ShipoVar.Key].UpgradeValueBy(4);
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -36,4 +36,4 @@ public class Yiyankanpo : AbstractHiroCard
         );
     }
 
-}
+} 

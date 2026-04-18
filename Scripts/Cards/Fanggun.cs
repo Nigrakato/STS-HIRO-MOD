@@ -10,7 +10,7 @@ namespace Hiro.Scripts.Cards
 {
     public class Fanggun : AbstractHiroCard
     {
-        public Fanggun() : base(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+        public Fanggun() : base(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
         {
         }
     public override IEnumerable<CardKeyword> CanonicalKeywords => [HiroCardKeywords.Zhengyi];
@@ -18,13 +18,13 @@ namespace Hiro.Scripts.Cards
         protected override IEnumerable<DynamicVar> CanonicalVars => 
         [
             new DynamicVar("Draw", 2m),         
-            new ShipoVar(2)
+            new ShipoVar(3)
         ];
 
         protected override void OnUpgrade()
         {
             DynamicVars["Draw"].UpgradeValueBy(1);      
-            DynamicVars[ShipoVar.Key].UpgradeValueBy(1);     
+            DynamicVars[ShipoVar.Key].UpgradeValueBy(2);     
         }
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
