@@ -11,7 +11,7 @@ namespace Hiro.Scripts.Cards
 {
     public class Zhengjiudajia : AbstractHiroCard
     {
-        public Zhengjiudajia() : base(2, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
+        public Zhengjiudajia() : base(3, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
         {
         }
     public override IEnumerable<CardKeyword> CanonicalKeywords => [HiroCardKeywords.Error];

@@ -23,7 +23,7 @@ namespace Hiro.Scripts.Cards
 
         protected override IEnumerable<DynamicVar> CanonicalVars =>
         [
-            new PowerVar<StrengthPower>(2m),
+            new PowerVar<StrengthPower>(3m),
             new PowerVar<VulnerablePower>(1m)
         ];
 

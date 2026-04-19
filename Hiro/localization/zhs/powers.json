@@ -62,6 +62,10 @@
 
   "HIRO-GANHEDEWENQUAN_POWER.title":"干涸的喷泉",
   "HIRO-GANHEDEWENQUAN_POWER.description":"打出[gold]黑白[/gold]时将带有虚无词条的随机攻击牌加入手牌，本回合免费打出。",
-  "HIRO-GANHEDEWENQUAN_POWER.smartDescription":"打出[gold]黑白[/gold]时将[blue]{Amount}[/blue]张带有虚无词条的随机攻击牌加入手牌，本回合免费打出。"
+  "HIRO-GANHEDEWENQUAN_POWER.smartDescription":"打出[gold]黑白[/gold]时将[blue]{Amount}[/blue]张带有虚无词条的随机攻击牌加入手牌，本回合免费打出。",
+
+  "HIRO-SHIPO_LOCK_POWER.title":"中场休息",
+  "HIRO-SHIPO_LOCK_POWER.description":"打出攻击牌不再触发[gold]识破[/gold]。",
+  "HIRO-SHIPO_LOCK_POWER.smartDescription":"[blue]{Amount}[/blue]回合内打出攻击牌不再触发[gold]识破[/gold]。"
 
 }

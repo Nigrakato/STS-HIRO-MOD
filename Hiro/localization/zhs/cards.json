@@ -73,7 +73,7 @@
   "HIRO-CHIZE.description": "给予{WeakPower:diff()}层[gold]虚弱[/gold]。",
  
   "HIRO-SHIJIANHUISU.title": "时间回溯",
-  "HIRO-SHIJIANHUISU.description": "获得{Hiro-Shayi:diff()}层[red]杀意冲动[/red]\n获得{Energy:energyIcons()}",
+  "HIRO-SHIJIANHUISU.description": "获得{Hiro-Shayi:diff()}层[red]杀意冲动[/red]\n获得{Energy:energyIcons()}\n将1张[gold]冷静[/gold]置入弃牌堆。",
  
   "HIRO-LENGJINSIKAO.title": "冷静思考",
   "HIRO-LENGJINSIKAO.description": "消耗[gold]识破[/gold]时返还一半层数。",
@@ -210,7 +210,23 @@
   "HIRO-CAIHONGYU.description": "本场战斗中每打出一张[gold]色彩[/gold]，就造成{Damage:diff()}点伤害一次。{InCombat:\n（攻击{SecaiHits:diff()}次）|}",
 
   "HIRO-WUCAIBANLANDEHEI.title": "五彩斑斓的黑",
-  "HIRO-WUCAIBANLANDEHEI.description": "本回合每打出一张[gold]色彩[/gold]或[gold]黑白[/gold]，就对所有敌人造成{Damage:diff()}点伤害一次。{InCombat:\n（攻击{ColorHits:diff()}次）|}"
+  "HIRO-WUCAIBANLANDEHEI.description": "本回合每打出一张[gold]色彩[/gold]或[gold]黑白[/gold]，就对所有敌人造成{Damage:diff()}点伤害一次。{InCombat:\n（攻击{ColorHits:diff()}次）|}",
 
+  "HIRO-ZUICHOU.title":"嘴臭",
+  "HIRO-ZUICHOU.description":"给予{VulnerablePower:diff()}层[gold]易伤[/gold]。",
 
+  "HIRO-XUNQING.title":"殉情",
+  "HIRO-XUNQING.description":"造成{Damage:diff()}点伤害。\n获得{StrengthPower:diff()}点[gold]力量[/gold]。\n该敌人获得{EnemyStrength:diff()}点[gold]力量[/gold]。",
+
+  "HIRO-ZHONGCHANGXIUXI.title":"中场休息",
+  "HIRO-ZHONGCHANGXIUXI.description":"获得{Block:diff()}点[gold]格挡[/gold]，本回合打出攻击牌将不再触发[gold]识破[/gold]。",
+
+  "HIRO-LENGJING.title":"冷静",
+  "HIRO-LENGJING.description":"被消耗时获得1层[gold]正义[/gold]和3层[gold]识破[/gold]。",
+
+  "HIRO-SHITAN.title":"试探",
+  "HIRO-SHITAN.description":"[red]错误  [/red]\n造成{Damage:diff()}点伤害，获得{Hiro-Shipo:diff()}层[gold]识破[/gold]。",
+
+  "HIRO-NUOYADEXIAOXINSI.title":"诺亚的小心思",
+  "HIRO-NUOYADEXIAOXINSI.description":"造成{Damage:diff()}点伤害，将1张[gold]{IfUpgraded:show:色彩+|色彩}[/gold]加入手牌。"
 }

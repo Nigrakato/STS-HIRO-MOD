@@ -41,7 +41,7 @@ public class Nuoyadehuashi : AbstractHiroCard
     }
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-        HoverTipFactory.FromCard<Secai>(IsUpgraded), // 显示升级后的预览
+        HoverTipFactory.FromCard<Secai>(IsUpgraded), 
         HoverTipFactory.FromCard<Heibai>(IsUpgraded)
     ];
 }

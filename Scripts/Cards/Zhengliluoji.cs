@@ -17,14 +17,13 @@ public class Zhengliluoji : AbstractHiroCard
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new BlockVar(7, ValueProp.Move),
+        new BlockVar(8, ValueProp.Move),
         new DynamicVar("Draw", 1m)
     ];
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Block.UpgradeValueBy(1);
-        DynamicVars["Draw"].UpgradeValueBy(1);
+        DynamicVars.Block.UpgradeValueBy(2);
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

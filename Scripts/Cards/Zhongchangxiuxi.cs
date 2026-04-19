@@ -1,39 +1,39 @@
-using Hiro.Scripts.HiroVar;
-using Hiro.Scripts.Keywords;
 using Hiro.Scripts.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Hiro.Scripts.Cards;
 
-public class Yiyankanpo : AbstractHiroCard
+public class Zhongchangxiuxi : AbstractHiroCard
 {
-    public Yiyankanpo() : base(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+
+
+    public Zhongchangxiuxi() : base(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
     {
     }
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [HiroCardKeywords.Zhengyi,CardKeyword.Exhaust];
-
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new ShipoVar(8)
+        new BlockVar(7m, ValueProp.Move),
+        new DynamicVar("ShipoLock", 1m)
     ];
 
     protected override void OnUpgrade()
     {
-        DynamicVars[ShipoVar.Key].UpgradeValueBy(4);
+        DynamicVars.Block.UpgradeValueBy(3m);
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<Shipo>(
+        await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
+
+        await PowerCmd.Apply<ShipoLockPower>(
             Owner.Creature,
-            DynamicVars[ShipoVar.Key].BaseValue,
+            DynamicVars["ShipoLock"].BaseValue,
             Owner.Creature,
             this
         );
     }
-
-} 
+}
