@@ -40,32 +40,32 @@ namespace Hiro.Scripts.Powers
             return Task.CompletedTask;
         }
 
-        public override async Task BeforeCardPlayed(CardPlay cardPlay)
+        public override Task BeforeCardPlayed(CardPlay cardPlay)
         {
             if (IsSuppressed())
             {
-                return;
+                return Task.CompletedTask;
             }
 
             if (cardPlay.Card.Type != CardType.Attack)
             {
-                return;
+                return Task.CompletedTask;
             }
 
             if (cardPlay.Card.Owner.Creature != Owner)
             {
-                return;
+                return Task.CompletedTask;
             }
 
             if (Amount <= 0)
             {
-                return;
+                return Task.CompletedTask;
             }
 
             _consumingCard = cardPlay.Card;
             _consumedAmountForCurrentCard = Amount;
 
-            await PowerCmd.ModifyAmount(this, -Amount, Owner, null);
+            return Task.CompletedTask;
         }
 
         public override decimal ModifyDamageMultiplicative(
@@ -114,15 +114,28 @@ namespace Hiro.Scripts.Powers
             return 1m + (effectiveAmount * perStackBonus);
         }
 
-        public override Task AfterCardPlayedLate(PlayerChoiceContext context, CardPlay cardPlay)
+        public override async Task AfterCardPlayedLate(PlayerChoiceContext context, CardPlay cardPlay)
         {
-            if (cardPlay.Card == _consumingCard)
+            if (cardPlay.Card != _consumingCard)
             {
-                _consumingCard = null;
-                _consumedAmountForCurrentCard = 0m;
+                return;
             }
 
-            return Task.CompletedTask;
+            decimal consumeAmount = _consumedAmountForCurrentCard;
+
+            _consumingCard = null;
+            _consumedAmountForCurrentCard = 0m;
+
+            if (consumeAmount <= 0)
+            {
+                return;
+            }
+
+            decimal actualConsume = Amount < consumeAmount ? Amount : consumeAmount;
+            if (actualConsume > 0)
+            {
+                await PowerCmd.ModifyAmount(this, -actualConsume, Owner, null);
+            }
         }
     }
 }

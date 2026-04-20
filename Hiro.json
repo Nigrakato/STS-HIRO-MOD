@@ -3,7 +3,7 @@
   "name": "Hiro",
   "author": "Linhx",
   "description": "Hiro",
-  "version": "beta0.5.0",
+  "version": "beta0.8.0",
   "has_pck": true,
   "has_dll": true,
   "dependencies": [

@@ -15,7 +15,7 @@ namespace Hiro.Scripts.Cards
     {
         private const string _enemyStrengthKey = "EnemyStrength";
 
-        public Xunqing() : base(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+        public Xunqing() : base(0, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
         {
         }
 

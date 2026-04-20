@@ -23,18 +23,34 @@ namespace Hiro.Scripts.Patches
 
             try
             {
+
                 if (!__instance.CanonicalKeywords.Contains(HiroCardKeywords.Error))
                 {
                     return;
                 }
 
-                if (__instance.Owner?.Creature == null)
+
+                string cardId = __instance.Id?.Entry ?? string.Empty;
+                if (IsTemporaryChoiceCard(cardId))
                 {
-                    GD.Print("[错误关键词] 持有者为空，跳过");
+                    GD.Print($"[错误关键词] 跳过临时选择卡牌：{cardId}");
                     return;
                 }
 
-                GD.Print($"[错误关键词] 卡牌 {__instance.Id.Entry} 带错误关键词，获得1层杀意冲动");
+                GD.Print($"[错误关键词] 卡牌 {cardId} 带错误关键词，准备获得杀意冲动");
+
+                if (choiceContext == null)
+                {
+                    GD.Print("[错误关键词] choiceContext 为空，跳过");
+                    return;
+                }
+
+                if (__instance.Owner?.Creature == null || !__instance.Owner.Creature.IsAlive)
+                {
+                    GD.Print("[错误关键词] 持有者为空或已死亡，跳过");
+                    return;
+                }
+
 
                 await KillImpulsePower.GainStacks(
                     choiceContext,
@@ -48,8 +64,20 @@ namespace Hiro.Scripts.Patches
             }
             catch (Exception e)
             {
-                GD.PrintErr($"[错误关键词] ❌ 报错：{e}");
+                GD.PrintErr($"[错误关键词] ❌ 报错：{e.Message}\n{e.StackTrace}");
             }
+        }
+
+
+        private static bool IsTemporaryChoiceCard(string cardId)
+        {
+            if (string.IsNullOrEmpty(cardId))
+                return true;
+
+            string lowerId = cardId.ToLowerInvariant();
+            return lowerId.Contains("picnic") ||
+                   lowerId.Contains("movie") ||
+                   lowerId.Contains("game");
         }
     }
 }

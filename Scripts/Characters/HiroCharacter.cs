@@ -1,4 +1,5 @@
 using BaseLib.Abstracts;
+using BaseLib.Patches.UI;
 using Godot;
 using Hiro.Scripts.Cards;
 using Hiro.Scripts.Pools;
@@ -11,7 +12,7 @@ using MegaCrit.Sts2.Core.Models.Relics;
 namespace Hiro.Scripts.Characters;
 
 
-public class HiroCharacter : PlaceholderCharacterModel
+public class HiroCharacter : CustomCharacterModel
 {
 	private const string V = "res://Hiro/voices/weizheng.ogg";
 
@@ -29,7 +30,7 @@ public class HiroCharacter : PlaceholderCharacterModel
 	// 人物模型tscn路径。要自定义见下。
 	public override string CustomVisualPath => "res://Hiro/scenes/hiro_character.tscn";
 	// 卡牌拖尾路径。
-	// public override string CustomTrailPath => "res://scenes/vfx/card_trail_ironclad.tscn";
+	public override string CustomTrailPath => "res://scenes/vfx/card_trail_ironclad.tscn";
 	// 人物头像路径。
 	public override string CustomIconTexturePath => "res://Hiro/images/hiroicon.png";
 	// 人物头像2号。
@@ -57,25 +58,33 @@ public class HiroCharacter : PlaceholderCharacterModel
 	// 人物选择图标-锁定状态。
 	public override string CustomCharacterSelectLockedIconPath => "res://Hiro/images/hiro_select_lock.png";
 	// 人物选择过渡动画。
-	// public override string CustomCharacterSelectTransitionPath => "res://materials/transitions/ironclad_transition_mat.tres";
+	public override string CustomCharacterSelectTransitionPath => "res://materials/transitions/ironclad_transition_mat.tres";
 	// 地图上的角色标记图标、表情轮盘上的角色头像
 	public override string CustomMapMarkerPath => "res://Hiro/images/ui/hiromapmark.png";
 	// 攻击音效
-	//public override string CustomAttackSfx => null;
+	public override string CustomAttackSfx => null;
 	// 施法音效
-	// public override string CustomCastSfx => null;
+	public override string CustomCastSfx => null;
 	// 死亡音效
-	//public override string CustomDeathSfx => null;
+	public override string CustomDeathSfx => null;
 	// 角色选择音效
 	public override string CharacterSelectSfx => null;
 	// 过渡音效。这个不能删。
 	public override string CharacterTransitionSfx => "event:/sfx/ui/wipe_ironclad";
 
+    public override RelicIconData? CustomYummyCookie => new RelicIconData(
+		BigIconPath: "res://Hiro/images/relics/hiro-cookie.png",
+        PackedIconPath: "res://Hiro/images/relics/hiro-cookie.png",
+        PackedIconOutlinePath: "res://Hiro/images/relics/hiro-cookie.png"
+
+
+
+	);
+
 	public override CardPoolModel CardPool => ModelDb.CardPool<HiroCardPool>();
 	public override RelicPoolModel RelicPool => ModelDb.RelicPool<HiroRelicPool>();
 	public override PotionPoolModel PotionPool => ModelDb.PotionPool<HiroPotionPool>();
 
-	// 初始卡组
 	public override IEnumerable<CardModel> StartingDeck => [
 	   ModelDb.Card<Strike>(),
 	   ModelDb.Card<Strike>(),
@@ -91,12 +100,10 @@ public class HiroCharacter : PlaceholderCharacterModel
 	   // ModelDb.Card<>(),
 	];
 
-	// 初始遗物
 	public override IReadOnlyList<RelicModel> StartingRelics => [
 	   ModelDb.Relic<Pen>(),
 	];
 
-	// 攻击建筑师的攻击特效列表
 	public override List<string> GetArchitectAttackVfx() => [
 		"vfx/vfx_attack_blunt",
 		"vfx/vfx_heavy_blunt",

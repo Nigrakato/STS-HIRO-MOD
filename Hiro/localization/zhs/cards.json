@@ -19,7 +19,7 @@
 
   "HIRO-SHAONVDERICHANG.title": "少女的日常",
   "HIRO-SHAONVDERICHANG.selectionScreenPrompt": "选择一项效果",
-  "HIRO-SHAONVDERICHANG.description": "[gold]正义[/gold]\n接下来三回合开始获得5点防御，选择一项活动\n野餐：获得{Energy:energyIcons()} \n看电影：获得{DexterityPower:diff()}点[gold]敏捷[/gold] \n游戏：获得{Gold:diff()}[gold]金币[/gold]",
+  "HIRO-SHAONVDERICHANG.description": "接下来三回合开始获得5点防御，选择一项活动\n野餐：获得{Energy:energyIcons()} \n看电影：获得{DexterityPower:diff()}点[gold]敏捷[/gold] \n游戏：获得{Gold:diff()}[gold]金币[/gold]",
 
   "HIRO-PICNIC.title": "野餐",
   "HIRO-PICNIC.description": "获得{Energy:energyIcons()}",
@@ -43,7 +43,7 @@
   "HIRO-NUOYADEHUASHI.description": "将1张[gold]{IfUpgraded:show:色彩+|色彩}[/gold]和1张[gold]{IfUpgraded:show:黑白+|黑白}[/gold]置入手牌。",
  
   "HIRO-AIMA.title": "艾玛！！！！！",
-  "HIRO-AIMA.description": "打出时，获得{Energy:energyIcons()}并抽{Draw:diff()}张牌。此后每回合开始时，获得{Power:diff()}层[red]杀意冲动[/red]。",
+  "HIRO-AIMA.description": "打出时，获得{Energy:energyIcons()}并抽{Draw:diff()}张牌。此后每回合开始时，获得{Power:diff()}层[red]杀意冲动[/red]。\n（你只有一只艾玛，多次打出此卡不会叠加获得杀意冲动层数）",
  
   "HIRO-SECAI.title": "色彩",
   "HIRO-SECAI.description": "获得{IfUpgraded:show:2层|1层}随机效果。",
@@ -79,13 +79,13 @@
   "HIRO-LENGJINSIKAO.description": "消耗[gold]识破[/gold]时返还一半层数。",
   
   "HIRO-FANGYUXINGBIANBO.title": "防御性辩驳",
-  "HIRO-FANGYUXINGBIANBO.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n每有1个敌人，额外获得{BlockPerEnemy:diff()}点[gold]格挡[/gold]。",
+  "HIRO-FANGYUXINGBIANBO.description": "[gold]正义  [/gold]\n获得{Block:diff()}点[gold]格挡[/gold]。\n每有1个敌人，额外获得{BlockPerEnemy:diff()}点[gold]格挡[/gold]。",
 
   "HIRO-YIYANKANPO.title": "一眼看破",
   "HIRO-YIYANKANPO.description": "[gold]正义  [/gold]\n获得{Hiro-Shipo:diff()}层[gold]识破[/gold]。",
   
   "HIRO-TINGQUZHENGJU.title": "听取证据",
-  "HIRO-TINGQUZHENGJU.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n下个回合额外抽{Draw:diff()}张牌。",
+  "HIRO-TINGQUZHENGJU.description": "[gold]正义  [/gold]\n获得{Block:diff()}点[gold]格挡[/gold]。\n下个回合额外抽{Draw:diff()}张牌。",
  
   "HIRO-ZHENGLILUOJI.title": "整理逻辑",
   "HIRO-ZHENGLILUOJI.description": "[gold]正义  [/gold]\n获得{Block:diff()}点[gold]格挡[/gold]。\n抽{Draw:diff()}张牌。",
@@ -228,5 +228,22 @@
   "HIRO-SHITAN.description":"[red]错误  [/red]\n造成{Damage:diff()}点伤害，获得{Hiro-Shipo:diff()}层[gold]识破[/gold]。",
 
   "HIRO-NUOYADEXIAOXINSI.title":"诺亚的小心思",
-  "HIRO-NUOYADEXIAOXINSI.description":"造成{Damage:diff()}点伤害，将1张[gold]{IfUpgraded:show:色彩+|色彩}[/gold]加入手牌。"
+  "HIRO-NUOYADEXIAOXINSI.description":"造成{Damage:diff()}点伤害，将1张[gold]{IfUpgraded:show:色彩+|色彩}[/gold]加入手牌。",
+
+  "HIRO-NUOYAXIFA.title":"诺亚戏法",
+  "HIRO-NUOYAXIFA.description":"打出[gold]色彩[/gold]或[gold]黑白[/gold]时，对随机敌人造成6点伤害。",
+
+  "HIRO-DIANDIANXINGXING.title": "点点星星",
+  "HIRO-DIANDIANXINGXING.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n获得{VigorPower:diff()}点[gold]活力[/gold]。",
+
+  "HIRO-DUDUDUDU.title":"嘟嘟嘟嘟",
+  "HIRO-DUDUDUDU.description":"[red]魔女化[/red]才能打出。\n对所有敌人造成{Damage:diff()}点伤害{Repeat:diff()}次。",
+
+  "HIRO-NIGENBENBUDONGAI.title":"你根本不懂爱",
+  "HIRO-NIGENBENBUDONGAI.description": "造成{Damage:diff()}点伤害{Repeat:diff()}次。\n你的[gold]消耗牌堆[/gold]中每有一张[gold]黑白[/gold]，额外造成1次伤害。{InCombat:\n(当前额外造成{heibaicount:diff()}次)|}",
+
+  "HIRO-GAOXIAOYIREN.title":"搞笑艺人",
+  "HIRO-GAOXIAOYIREN.description":"造成{Damage:diff()}点伤害。击晕目标"
+
+
 }

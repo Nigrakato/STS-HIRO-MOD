@@ -66,6 +66,10 @@
 
   "HIRO-SHIPO_LOCK_POWER.title":"中场休息",
   "HIRO-SHIPO_LOCK_POWER.description":"打出攻击牌不再触发[gold]识破[/gold]。",
-  "HIRO-SHIPO_LOCK_POWER.smartDescription":"[blue]{Amount}[/blue]回合内打出攻击牌不再触发[gold]识破[/gold]。"
+  "HIRO-SHIPO_LOCK_POWER.smartDescription":"[blue]{Amount}[/blue]回合内打出攻击牌不再触发[gold]识破[/gold]。",
+  
+  "HIRO-NUOYAXIFA_POWER.title":"诺亚戏法",
+  "HIRO-NUOYAXIFA_POWER.description":"打出[gold]色彩[/gold]或[gold]黑白[/gold]时，对随机敌人造成伤害。",
+  "HIRO-NUOYAXIFA_POWER.smartDescription":"打出[gold]色彩[/gold]或[gold]黑白[/gold]时，对随机敌人造成{Amount}伤害。"
 
 }

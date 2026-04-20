@@ -17,7 +17,7 @@ namespace Hiro.Scripts.Cards
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
 
-        protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(12m, ValueProp.Move)];
+        protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(14m, ValueProp.Move)];
 
         protected override void OnUpgrade()
         {
