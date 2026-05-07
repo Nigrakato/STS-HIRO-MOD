@@ -23,7 +23,8 @@ public class Nuoyagongyu : AbstractHiroCard
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
+    {        await base.OnPlay(choiceContext, cardPlay);
+
         if (IsUpgraded)
         {
    

@@ -25,7 +25,8 @@ namespace Hiro.Scripts.Cards
         }
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-        {
+        {        await base.OnPlay(choiceContext, cardPlay);
+
             List<Creature> enemies = CombatManager.Instance.DebugOnlyGetState()!.Enemies.ToList();
 
             foreach (Creature creature in enemies)

@@ -47,6 +47,7 @@ public sealed class Chushizhengju : AbstractHiroCard
             {
                 await CardCmd.AutoPlay(choiceContext, card, null);
             }
+        await base.OnPlay(choiceContext, cardPlay);
 
             await CardCmd.Exhaust(choiceContext, card);
         }

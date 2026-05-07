@@ -22,7 +22,8 @@ namespace Hiro.Scripts.Cards
         ];
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-        {
+        {        await base.OnPlay(choiceContext, cardPlay);
+
             await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
             await PowerCmd.Apply<EnergyNextTurnPower>(Owner.Creature, DynamicVars.Energy.BaseValue, Owner.Creature, this);
         }

@@ -28,7 +28,8 @@ namespace Hiro.Scripts.Cards
         }
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-        {
+        {        await base.OnPlay(choiceContext, cardPlay);
+
             int drawCount = DynamicVars["Draw"].IntValue;
             await CardPileCmd.Draw(choiceContext, drawCount, Owner);
             await PowerCmd.Apply<Shipo>(Owner.Creature, DynamicVars[ShipoVar.Key].BaseValue, Owner.Creature, this);

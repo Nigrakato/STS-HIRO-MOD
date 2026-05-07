@@ -32,6 +32,7 @@ public class Anxiyishi : AbstractHiroCard
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await PowerCmd.Apply<RitualPower>(Owner.Creature,  DynamicVars["RitualPower"].BaseValue, Owner.Creature, this);
+        await base.OnPlay(choiceContext, cardPlay);
 
         await PowerCmd.Apply<AnxiyishiPower>(Owner.Creature, 1, Owner.Creature, this);
     }

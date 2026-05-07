@@ -31,5 +31,7 @@ public class Shipocard : AbstractHiroCard
     {
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
         await PowerCmd.Apply<Shipo>(Owner.Creature, DynamicVars[ShipoVar.Key].BaseValue, Owner.Creature, this);
+        await base.OnPlay(choiceContext, cardPlay);
+
     }
 }

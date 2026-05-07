@@ -30,6 +30,7 @@ namespace Hiro.Scripts.Cards
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
             ArgumentNullException.ThrowIfNull(cardPlay.Target);
+        await base.OnPlay(choiceContext, cardPlay);
 
             await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
             await PowerCmd.Apply<WeakPower>(cardPlay.Target, DynamicVars.Weak.BaseValue, Owner.Creature, this);

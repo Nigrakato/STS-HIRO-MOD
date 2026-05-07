@@ -30,7 +30,8 @@ namespace Hiro.Scripts.Cards
         }
 
         public async Task OnOptionChosen(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-        {
+        {        await base.OnPlay(choiceContext, cardPlay);
+
             VfxCmd.PlayOnCreature(Owner.Creature, "vfx/vfx_coin_explosion_regular");
             await PlayerCmd.GainGold(DynamicVars.Gold.IntValue, Owner);
         }

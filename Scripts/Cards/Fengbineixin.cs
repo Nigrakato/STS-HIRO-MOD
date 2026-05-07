@@ -27,7 +27,8 @@ public class Fengbineixin : AbstractHiroCard
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
+    {        await base.OnPlay(choiceContext, cardPlay);
+
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
         await PowerCmd.Apply<NoDrawPower>(Owner.Creature, 1m, Owner.Creature, this);
     }

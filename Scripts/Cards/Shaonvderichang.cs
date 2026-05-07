@@ -46,7 +46,8 @@ namespace Hiro.Scripts.Cards
         }
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-        {
+        {        await base.OnPlay(choiceContext, cardPlay);
+
             decimal blockAmount = await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
 
             var power = await PowerCmd.Apply<ToricToughnessPower>(Owner.Creature, DynamicVars["Turns"].BaseValue, Owner.Creature, this);

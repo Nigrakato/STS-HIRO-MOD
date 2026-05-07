@@ -43,6 +43,7 @@ public sealed class FanboWoxiangxindajia : AbstractHiroCard
             
             await CardPileCmd.Draw(choiceContext, base.DynamicVars.Cards.BaseValue, player);
         }
+        await base.OnPlay(choiceContext, cardPlay);
 
         PlayerCmd.EndTurn(base.Owner, canBackOut: false);
     }

@@ -32,7 +32,8 @@ namespace Hiro.Scripts.Cards
         }
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-        {
+        {        await base.OnPlay(choiceContext, cardPlay);
+
             await PlayerCmd.GainEnergy(4, Owner);
             await CardPileCmd.Draw(choiceContext, DynamicVars["Draw"].IntValue, Owner);
             await PowerCmd.Apply<DiantineiPower>(Owner.Creature, DynamicVars["Power"].BaseValue, Owner.Creature, this);

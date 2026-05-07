@@ -72,10 +72,10 @@ public class HiroCharacter : CustomCharacterModel
 	// 过渡音效。这个不能删。
 	public override string CharacterTransitionSfx => "event:/sfx/ui/wipe_ironclad";
 
-    public override RelicIconData? CustomYummyCookie => new RelicIconData(
+	public override RelicIconData? CustomYummyCookie => new RelicIconData(
 		BigIconPath: "res://Hiro/images/relics/hiro-cookie.png",
-        PackedIconPath: "res://Hiro/images/relics/hiro-cookie.png",
-        PackedIconOutlinePath: "res://Hiro/images/relics/hiro-cookie.png"
+		PackedIconPath: "res://Hiro/images/relics/hiro-cookie.png",
+		PackedIconOutlinePath: "res://Hiro/images/relics/hiro-cookie.png"
 
 
 

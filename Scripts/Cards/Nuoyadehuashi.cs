@@ -16,7 +16,8 @@ public class Nuoyadehuashi : AbstractHiroCard
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
+    {        await base.OnPlay(choiceContext, cardPlay);
+
         CardModel secaiCard = CombatState!.CreateCard<Secai>(Owner);
         if (IsUpgraded)
         {

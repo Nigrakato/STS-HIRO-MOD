@@ -36,7 +36,8 @@ protected override void OnUpgrade()
 }
 
 protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-{
+{        await base.OnPlay(choiceContext, cardPlay);
+
     await PowerCmd.Apply<Shipo>(Owner.Creature, DynamicVars[ShipoVar.Key].BaseValue, Owner.Creature, this);
     await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
 

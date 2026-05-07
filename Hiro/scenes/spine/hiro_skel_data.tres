@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://cvu5r65phmqo3"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://c7v8l3x5nrulg" path="res://Hiro/scenes/spine/hiro.atlas" id="1_y721c"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://dtoaemuyphc3j" path="res://Hiro/scenes/spine/hiro.skel" id="2_ond03"]
+
+[resource]
+atlas_res = ExtResource("1_y721c")
+skeleton_file_res = ExtResource("2_ond03")

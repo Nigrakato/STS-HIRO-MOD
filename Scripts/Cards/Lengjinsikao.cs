@@ -23,7 +23,8 @@ public class Lengjinsikao : AbstractHiroCard
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
+    {        await base.OnPlay(choiceContext, cardPlay);
+
         await PowerCmd.Apply<ShipoRefund>(Owner.Creature, DynamicVars["PowerAmount"].BaseValue, Owner.Creature, this);
     }
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [

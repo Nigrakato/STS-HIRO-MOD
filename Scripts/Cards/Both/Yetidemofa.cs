@@ -27,6 +27,7 @@ public sealed class Yetidemofa : AbstractHiroCard
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.TriggerAnim(base.Owner.Creature, "Cast", base.Owner.Character.CastAnimDelay);
+        await base.OnPlay(choiceContext, cardPlay);
 
         IEnumerable<Player> allPlayers = base.CombatState!.Players.Where(p => p.Creature is { IsAlive: true });
 

@@ -22,7 +22,8 @@ public sealed class Huaihaiziaima : AbstractHiroCard
     protected override void OnUpgrade() => base.DynamicVars.Damage.UpgradeValueBy(2m);
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
+    {        await base.OnPlay(choiceContext, cardPlay);
+
         await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue)
             .FromCard(this)
             .TargetingAllOpponents(base.CombatState!)

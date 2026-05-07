@@ -39,7 +39,8 @@ namespace Hiro.Scripts.Cards
         ];
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-        {
+        {        await base.OnPlay(choiceContext, cardPlay);
+
             ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
 
             int justice = Owner.Creature.GetPowerAmount<Justice>();

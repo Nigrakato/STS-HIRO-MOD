@@ -28,7 +28,8 @@ namespace Hiro.Scripts.Cards
 
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-        {
+        {        await base.OnPlay(choiceContext, cardPlay);
+
             await PowerCmd.Apply<NuoyaxifaPower>(
                 Owner.Creature,
                 DynamicVars["NuoyaxifaPower"].BaseValue,

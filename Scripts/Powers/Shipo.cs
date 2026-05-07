@@ -1,140 +1,90 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
-using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using Hiro.Scripts.Cards;
 
-namespace Hiro.Scripts.Powers
+namespace Hiro.Scripts.Powers;
+
+public sealed class Shipo : AbstractHiroPower
 {
-    public sealed class Shipo : AbstractHiroPower
+    private class Data
     {
-        private CardModel? _consumingCard;
-        private decimal _consumedAmountForCurrentCard;
+        public AttackCommand? commandToModify;
+    }
 
-        public override PowerType Type => PowerType.Buff;
+    public override PowerType Type => PowerType.Buff;
+    public override PowerStackType StackType => PowerStackType.Counter;
 
-        public override PowerStackType StackType => PowerStackType.Counter;
+    protected override IEnumerable<DynamicVar> CanonicalVars => 
+        [new DynamicVar("BonusPercent", 0m)];
 
-        protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [
-            new DynamicVar("BonusPercent", 0m)
-        ];
+    protected override object InitInternalData() => new Data();
 
-        private bool IsSuppressed()
+    public override Task AfterPowerAmountChanged(PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
+    {
+        if (power == this)
         {
-            return Owner.HasPower<ShipoLockPower>();
+            DynamicVars["BonusPercent"].BaseValue = Amount * 10m;
         }
+        return Task.CompletedTask;
+    }
 
-        public override Task AfterPowerAmountChanged(PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
+    public override Task BeforeAttack(AttackCommand command)
+    {
+        if (command.ModelSource is not CardModel card || card.Owner.Creature != Owner || card.Type != CardType.Attack)
         {
-            if (power == this)
-            {
-                DynamicVars["BonusPercent"].BaseValue = Amount * 10m;
-            }
             return Task.CompletedTask;
         }
 
-        public override Task BeforeCardPlayed(CardPlay cardPlay)
+        if (Owner.HasPower<ShipoLockPower>())
         {
-            if (IsSuppressed())
-            {
-                return Task.CompletedTask;
-            }
-
-            if (cardPlay.Card.Type != CardType.Attack)
-            {
-                return Task.CompletedTask;
-            }
-
-            if (cardPlay.Card.Owner.Creature != Owner)
-            {
-                return Task.CompletedTask;
-            }
-
-            if (Amount <= 0)
-            {
-                return Task.CompletedTask;
-            }
-
-            _consumingCard = cardPlay.Card;
-            _consumedAmountForCurrentCard = Amount;
-
             return Task.CompletedTask;
         }
 
-        public override decimal ModifyDamageMultiplicative(
-            Creature? target,
-            decimal amount,
-            ValueProp props,
-            Creature? dealer,
-            CardModel? cardSource)
+        Data data = GetInternalData<Data>();
+        if (data.commandToModify == null)
         {
-            if (IsSuppressed())
-            {
-                return 1m;
-            }
+            data.commandToModify = command;
+        }
+        return Task.CompletedTask;
+    }
 
-            if (cardSource == null || cardSource.Type != CardType.Attack)
-            {
-                return 1m;
-            }
+public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
+    {
+        if (cardSource == null || cardSource.Owner.Creature != Owner || !props.IsPoweredAttack() || Owner.HasPower<ShipoLockPower>())
+        {
+            return 1m;
+        }
 
-            if (cardSource.Owner.Creature != Owner)
-            {
-                return 1m;
-            }
-
-            decimal effectiveAmount = Amount;
-
-            if (cardSource == _consumingCard)
-            {
-                effectiveAmount = _consumedAmountForCurrentCard;
-            }
-
-            if (effectiveAmount <= 0)
-            {
-                return 1m;
-            }
-
+        Data data = GetInternalData<Data>();
+        if (data.commandToModify == null || cardSource == data.commandToModify.ModelSource)
+        {
             decimal perStackBonus = 0.1m;
-
             if (cardSource is Cuilianhuogun cuilianhuogun)
             {
-                decimal extraRatePercent = cuilianhuogun.DynamicVars["ShipoBonusRate"].BaseValue;
-                decimal extraRate = extraRatePercent / 100m;
-                perStackBonus *= (1m + extraRate);
+                perStackBonus *= (1m + cuilianhuogun.DynamicVars["ShipoBonusRate"].BaseValue / 100m);
             }
-
-            return 1m + (effectiveAmount * perStackBonus);
+            return 1m + (Amount * perStackBonus);
         }
 
-        public override async Task AfterCardPlayedLate(PlayerChoiceContext context, CardPlay cardPlay)
+        return 1m;
+    }
+    public override async Task AfterAttack(AttackCommand command)
+    {
+        Data data = GetInternalData<Data>();
+        if (command == data.commandToModify)
         {
-            if (cardPlay.Card != _consumingCard)
+            data.commandToModify = null; 
+            if (Amount > 0)
             {
-                return;
-            }
-
-            decimal consumeAmount = _consumedAmountForCurrentCard;
-
-            _consumingCard = null;
-            _consumedAmountForCurrentCard = 0m;
-
-            if (consumeAmount <= 0)
-            {
-                return;
-            }
-
-            decimal actualConsume = Amount < consumeAmount ? Amount : consumeAmount;
-            if (actualConsume > 0)
-            {
-                await PowerCmd.ModifyAmount(this, -actualConsume, Owner, null);
+                await PowerCmd.ModifyAmount(this, -Amount, Owner, null);
             }
         }
     }

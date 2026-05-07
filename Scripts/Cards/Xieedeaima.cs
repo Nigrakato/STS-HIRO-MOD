@@ -21,7 +21,8 @@ public sealed class Xieedeaima : AbstractHiroCard
     protected override void OnUpgrade() => base.DynamicVars.Damage.UpgradeValueBy(2m);
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
+    {        await base.OnPlay(choiceContext, cardPlay);
+
         ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
 
         await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue)

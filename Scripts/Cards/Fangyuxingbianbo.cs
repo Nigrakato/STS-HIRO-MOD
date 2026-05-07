@@ -24,7 +24,8 @@ public class Fangyuxingbianbo : AbstractHiroCard
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
+    {        await base.OnPlay(choiceContext, cardPlay);
+
         IReadOnlyList<Creature> hittableEnemies = CombatState!.HittableEnemies;
         int enemyCount = hittableEnemies.Count;
 

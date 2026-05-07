@@ -33,7 +33,8 @@ namespace Hiro.Scripts.Cards
         };
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-        {
+        {        await base.OnPlay(choiceContext, cardPlay);
+
             if (cardPlay.Target == null) return;
             var player = base.Owner;
             if (player == null) return;

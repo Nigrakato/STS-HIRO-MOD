@@ -21,7 +21,8 @@ public sealed class Weizheng : AbstractHiroCard
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
+    {        await base.OnPlay(choiceContext, cardPlay);
+
         await CreatureCmd.TriggerAnim(base.Owner.Creature, "Cast", base.Owner.Character.CastAnimDelay);
 
         List<CardModel> handCards = PileType.Hand.GetPile(base.Owner).Cards

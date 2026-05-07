@@ -32,7 +32,8 @@ namespace Hiro.Scripts.Cards
         };
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-        {
+        {        await base.OnPlay(choiceContext, cardPlay);
+
             ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
 
             await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);

@@ -16,7 +16,6 @@ public sealed class Wutaiju : AbstractHiroCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => 
         [new DynamicVar("DrawAmount", 1m)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
 
     public Wutaiju()
         : base(3, CardType.Power, CardRarity.Rare, TargetType.Self)
@@ -24,7 +23,8 @@ public sealed class Wutaiju : AbstractHiroCard
     }
     
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
+    {        await base.OnPlay(choiceContext, cardPlay);
+
         await CreatureCmd.TriggerAnim(base.Owner.Creature, "Cast", base.Owner.Character.CastAnimDelay);
 
         decimal amount = base.DynamicVars["DrawAmount"].BaseValue;
@@ -42,7 +42,7 @@ public sealed class Wutaiju : AbstractHiroCard
     ];
     protected override void OnUpgrade()
     {
-		RemoveKeyword(CardKeyword.Ethereal);
+		AddKeyword(CardKeyword.Retain);
 
 
     }

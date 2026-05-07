@@ -6,11 +6,6 @@ namespace Hiro.Scripts.Nodes
 	public partial class HIROMerchantCharacter : NMerchantCharacter
 	{
 	
-		public new void PlayAnimation(string anim, bool loop = false)
-		{
-		   
-		}
-
 
 	}
 }

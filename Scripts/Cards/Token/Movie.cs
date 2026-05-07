@@ -31,7 +31,8 @@ namespace Hiro.Scripts.Cards
         }
 
         public async Task OnOptionChosen(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-        {
+        {        await base.OnPlay(choiceContext, cardPlay);
+
             await PowerCmd.Apply<DexterityPower>(Owner.Creature, DynamicVars["DexterityPower"].IntValue, Owner.Creature, this);
         }
 
